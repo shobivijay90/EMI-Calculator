@@ -14,27 +14,32 @@ function calculation(){
   var loanAmount = document.getElementById("value1").value;
   var interestRate = document.getElementById("value2").value;
   var loanDuration = document.getElementById("value3").value;
-  
-  //----------Monthly Interest----------
+   
+  //.......... declarations.............
   
  var interestPerYear = (loanAmount * interestRate)/100; 
- var monthlyInterest = interestPerYear/loanDuration;
+ var monthlyInterest = interestPerYear/12;
   
- document.getElementById("monthly-interest").innerHTML = " $ " +monthlyInterest.toFixed(2); 
+  var monthlyInterestForGiven = monthlyInterest;
+  
+  var monthlyPayment = monthlyInterestForGiven + (loanAmount/loanDuration);
+  var totalInterestCost = monthlyInterestForGiven * loanDuration;
+  var totalRepayment = monthlyPayment * loanDuration;
+  
+  //----------------monthly interest----------------------
+  
+ document.getElementById("monthly-interest").innerHTML = " $ " +monthlyInterestForGiven.toFixed(2); s
   
  //-------------Monthly payment------------
   
-  var monthlyPayment = monthlyInterest + (loanAmount/loanDuration);
    document.getElementById("monthly-payment").innerHTML = " $ " +monthlyPayment.toFixed(2); 
   
   //-------------Total repayment-----------
   
-  var totalRepayment = monthlyPayment * loanDuration;
   document.getElementById("total-repayment").innerHTML =" $ " +totalRepayment.toFixed(2);
   
   //--------------Total Interest cost----------------
   
-   var totalInterestCost = monthlyInterest * loanDuration;
   document.getElementById("total-interest").innerHTML =" $ " +totalInterestCost.toFixed(2);
   
 }
