@@ -20,15 +20,14 @@ function calculation(){
  var interestPerYear = (loanAmount * interestRate)/100; 
  var monthlyInterest = interestPerYear/12;
   
-  var monthlyInterestForGiven = monthlyInterest;
   
-  var monthlyPayment = monthlyInterestForGiven + (loanAmount/loanDuration);
-  var totalInterestCost = monthlyInterestForGiven * loanDuration;
+  var monthlyPayment = monthlyInterest + (loanAmount/loanDuration);
+  var totalInterestCost = monthlyInterest * loanDuration;
   var totalRepayment = monthlyPayment * loanDuration;
   
   //----------------monthly interest----------------------
   
- document.getElementById("monthly-interest").innerHTML = " $ " +monthlyInterestForGiven.toFixed(2); s
+ document.getElementById("monthly-interest").innerHTML = " $ " +monthlyInterest.toFixed(2);
   
  //-------------Monthly payment------------
   
